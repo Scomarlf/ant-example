@@ -76,10 +76,9 @@ export class Controller {
       prepend: (defaultActions, parameters, browserWindow, event) => [
         {
           label: "delete",
-          visible: parameters.titleText.endsWith("file"),
+          visible: true,
           click: () => {
-            let name = getProfileName(parameters.titleText);
-            this.window!.webContents.send("profiles", "delete", name);
+            this.window!.webContents.send("profiles", "delete");
           }
         }
       ]
