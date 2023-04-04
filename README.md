@@ -1,21 +1,21 @@
-# BUG example
+# Bug report example
 
-## 启动
+## startup
 
 ```bash
 npm run start
 ```
 
-## 重现步骤
+## Reproducible Steps
 
-1. 右键任意空白处
-2. 选择 delete
+1. right click anywhere
+2. select delete
 
-## 预期行为
+## Expected Behavior
 
-正常弹出对话框
+A modal dialog box pops up on the UI interface
 
-## 实际情况
+## Actual Behavior
 
-对话框弹出位置不正确。  
-过段时间后，会自动显示到正确的位置。
+The dialog popup position is not correct.
+After a period of time, it will automatically display to the correct position.
