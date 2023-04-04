@@ -1,0 +1,71 @@
+{
+  "name": "controller",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "tsc": "wireit",
+    "start": "wireit",
+    "build:ng": "wireit"
+  },
+  "wireit": {
+    "tsc": {
+      "command": "tsc main.ts && tsc controller.ts",
+      "remark": "https://github.com/microsoft/TypeScript/issues/911"
+    },
+    "start:ng": {
+      "command": "ng serve --port 8000",
+      "service": true
+    },
+    "start": {
+      "command": "electron . --port 8000",
+      "service": {
+        "readyWhen": {
+          "lineMatches": "Server is listening on localhost:\\d+"
+        }
+      },
+      "dependencies": [
+        "tsc",
+        "start:ng"
+      ]
+    },
+    "build:ng": {
+      "command": "ng build --aot --base-href ./"
+    }
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^15.2.0",
+    "@angular/common": "^15.2.0",
+    "@angular/compiler": "^15.2.0",
+    "@angular/core": "^15.2.0",
+    "@angular/forms": "^15.2.0",
+    "@angular/platform-browser": "^15.2.0",
+    "@angular/platform-browser-dynamic": "^15.2.0",
+    "@angular/router": "^15.2.0",
+    "dayjs": "^1.11.7",
+    "ng-zorro-antd": "^15.1.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "uuid": "^9.0.0",
+    "zone.js": "~0.12.0"
+  },
+  "devDependencies": {
+    "@angular-builders/custom-webpack": "^15.0.0",
+    "@angular-devkit/build-angular": "^15.2.2",
+    "@angular/cli": "~15.2.2",
+    "@angular/compiler-cli": "^15.2.0",
+    "@types/config": "^3.3.0",
+    "@types/jasmine": "~4.3.0",
+    "@types/node": "^18.15.3",
+    "electron": "^23.1.3",
+    "electron-context-menu": "^3.6.1",
+    "jasmine-core": "~4.5.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.0.0",
+    "typescript": "~4.9.4",
+    "wireit": "^0.9.5"
+  }
+}
